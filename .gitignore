@@ -1,0 +1,17 @@
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.log
+node_modules/
+
+# Original local video exports are too large / less browser-compatible.
+# The site uses compressed H.264 .mp4 files instead.
+static/videos/*.mov
+static/videos/.DS_Store
+
+# Claude Code session state
+.claude/
+
+# LaTeX source — only kept locally, not deployed
+ref/

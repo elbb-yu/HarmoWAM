@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HarmoWAM: Harmonizing Generalizable and Precise Manipulation via Adaptive World Action Models</title>
+  <meta name="description" content="HarmoWAM: an adaptive World Action Model for harmonizing generalizable transit and precise manipulation." />
+  <meta property="og:title" content="HarmoWAM: Harmonizing Generalizable and Precise Manipulation via Adaptive World Action Models" />
+  <meta property="og:description" content="HarmoWAM unifies predictive and reactive control through adaptive world-model guidance for real-world robotic manipulation." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Serif:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.4/css/academicons.min.css" />
+  <link rel="stylesheet" href="static/css/style.css" />
+  <script>
+    (function () {
+      var deepLink = !!window.location.hash;
+      var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (!deepLink && !reduced) document.documentElement.classList.add('intro-active');
+    })();
+  </script>
+</head>
+<body>
+  <div id="intro-veil" aria-label="Welcome" role="button" tabindex="0">
+    <div class="intro-bar"></div>
+    <div class="intro-title-area">
+      <h1 class="intro-title">
+        <span class="method-name">HarmoWAM</span>:
+        Harmonizing Generalizable and Precise Manipulation via Adaptive World Action Models
+      </h1>
+    </div>
+    <p class="intro-hint" aria-hidden="true">click to enter</p>
+  </div>
+
+  <section class="teaser-top">
+    <div class="container">
+      <figure class="teaser">
+        <img src="static/images/teasor.pdf.png" alt="HarmoWAM overview figure" />
+        <figcaption>
+          <strong>The Overview of HarmoWAM.</strong> We propose HarmoWAM, an end-to-end
+          WAM that jointly achieves generalizable transit and precise manipulation
+          through a world model that provides physical dynamics priors and adaptively
+          coordinates a predictive action expert and a reactive action expert.
+          HarmoWAM achieves SOTA performance in ID settings and exhibits a
+          substantial advantage in OOD scenarios.
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <header class="hero">
+    <div class="container">
+      <h1 class="paper-title">
+        <span class="method-name">HarmoWAM</span>:
+        Harmonizing Generalizable and Precise Manipulation via Adaptive World Action Models
+      </h1>
+      <div class="authors">
+        <span class="author">Qiuxuan Feng<sup>1*</sup></span>
+        <span class="author">Jiale Yu<sup>1*</sup></span>
+        <span class="author">Jiaming Liu<sup>1*†</sup></span>
+        <span class="author">Yueru Jia<sup>1*</sup></span>
+        <span class="author">Zhuangzhe Wu<sup>1</sup></span>
+        <span class="author"><strong>Hao Chen<sup>3</sup></strong></span>
+        <span class="author"><strong>Zezhong Qian<sup>1</sup></strong></span>
+        <span class="author"><strong>Shuo Gu<sup>2</sup></strong></span>
+        <span class="author"><strong>Peng Jia<sup>2</sup></strong></span>
+        <span class="author"><strong>Siwei Ma<sup>1</sup></strong></span>
+        <span class="author"><strong>Shanghang Zhang<sup>1✉</sup></strong></span>
+      </div>
+      <div class="affiliations">
+        <span><sup>1</sup>State Key Laboratory of Multimedia Information Processing, School of Computer Science, Peking University</span>
+        <span><sup>2</sup>Simplexity Robotics</span>
+        <span><sup>3</sup>The Chinese University of Hong Kong</span>
+      </div>
+      <div class="notes">
+        <span><sup>*</sup>Equal contribution</span>
+        <span><sup>†</sup>Project lead</span>
+        <span><sup>✉</sup>Corresponding author</span>
+        <span>Submitted to the 40th Conference on Neural Information Processing Systems (NeurIPS 2026)</span>
+      </div>
+      <div class="action-buttons">
+        <a class="btn" href="static/papers/harmowam.pdf" target="_blank" rel="noopener noreferrer"><i class="fas fa-file-pdf"></i><span>Paper</span></a>
+        <a class="btn" href="#results"><i class="fas fa-chart-line"></i><span>Results</span></a>
+        <a class="btn" href="#real-world"><i class="fas fa-video"></i><span>Videos</span></a>
+        <a class="btn" href="#bibtex"><i class="fas fa-quote-right"></i><span>BibTeX</span></a>
+      </div>
+
+      <figure class="title-video">
+        <video autoplay controls muted loop playsinline preload="metadata">
+          <source src="static/videos/HarmoWAM.mp4" type="video/mp4" />
+        </video>
+        <figcaption>
+          <strong>HarmoWAM overview video.</strong> Representative real-world
+          demonstrations across in-domain and out-of-domain scenarios.
+        </figcaption>
+      </figure>
+    </div>
+  </header>
+
+  <section class="section" id="results">
+    <div class="container">
+      <h2>Headline Results</h2>
+      <div class="stat-grid">
+        <div class="stat"><div class="stat-num">89<span class="stat-unit">%</span></div><div class="stat-label">Average success rate on six real-world in-domain tasks</div></div>
+        <div class="stat"><div class="stat-num">82<span class="stat-unit">%</span></div><div class="stat-label">Global OOD average across background, position, and object shifts</div></div>
+        <div class="stat"><div class="stat-num">+33<span class="stat-unit">%</span></div><div class="stat-label">OOD margin over prior state-of-the-art VLA models</div></div>
+        <div class="stat stat-text"><div class="stat-num">48 Hz</div><div class="stat-label">action generation speed with action chunk size 12</div></div>
+      </div>
+
+      <h3 class="subhead">In-Domain Real-World Results</h3>
+      <p class="caption-lead">
+        Task-level success rates for four single-arm and two dual-arm tasks.
+        <span class="ours">HarmoWAM</span> achieves the best average result.
+      </p>
+      <div class="table-wrap">
+        <table class="results-table">
+          <thead>
+            <tr><th>Method</th><th>Pick Fruit</th><th>Stack Cans</th><th>Pour Coke</th><th>Write "Yes"</th><th>Put Flowers</th><th>Put Items</th><th>Average</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>&pi;<sub>0.5</sub></td><td>0.80</td><td>0.68</td><td>0.75</td><td>0.83</td><td>0.72</td><td>0.67</td><td>0.74</td></tr>
+            <tr><td>VPP</td><td>0.80</td><td>0.60</td><td>0.78</td><td>0.73</td><td>&mdash;</td><td>&mdash;</td><td>0.73</td></tr>
+            <tr><td>Wan+AnyPos</td><td>0.88</td><td>0.60</td><td>0.78</td><td>0.72</td><td>0.53</td><td>0.52</td><td>0.67</td></tr>
+            <tr><td>QwenVLA-OFT</td><td>0.78</td><td>0.30</td><td>0.73</td><td>0.72</td><td>&mdash;</td><td>&mdash;</td><td>0.63</td></tr>
+            <tr><td>Cosmos-Policy</td><td>0.93</td><td>0.65</td><td>0.80</td><td>0.83</td><td>0.75</td><td>0.72</td><td>0.78</td></tr>
+            <tr class="ours-row"><td>HarmoWAM (Ours)</td><td><strong>0.95</strong></td><td><strong>0.90</strong></td><td><strong>0.88</strong></td><td><strong>0.92</strong></td><td><strong>0.85</strong></td><td><strong>0.85</strong></td><td><strong>0.89</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout-grid">
+        <div class="callout"><div class="callout-title"><i class="fas fa-route"></i><span>Generalizable Transit</span></div><p>HarmoWAM uses world-model predictions to expand exploration space, helping the robot reach target objects under unseen backgrounds, positions, and object instances.</p></div>
+        <div class="callout"><div class="callout-title"><i class="fas fa-crosshairs"></i><span>Precise Manipulation</span></div><p>The predictive expert conditions on latent video dynamics, supporting temporally coherent actions for contact-rich interaction and bimanual coordination.</p></div>
+        <div class="callout"><div class="callout-title"><i class="fas fa-random"></i><span>Adaptive Coordination</span></div><p>Process-Adaptive Gating routes control between reactive and predictive experts according to the current task stage, forming a unified closed-loop WAM policy.</p></div>
+      </div>
+
+      <h3 class="subhead">Generalization Performance</h3>
+      <p class="caption-lead">HarmoWAM maintains strong zero-shot performance across three OOD scenario types.</p>
+      <div class="table-wrap">
+        <table class="results-table">
+          <thead>
+            <tr><th>Method</th><th>Background</th><th>Position</th><th>Objects</th><th>Global Avg</th><th>Drop from ID</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>&pi;<sub>0.5</sub></td><td>0.60</td><td>0.32</td><td>0.54</td><td>0.49</td><td>33.8%↓</td></tr>
+            <tr><td>VPP</td><td>0.43</td><td>0.23</td><td>0.57</td><td>0.41</td><td>43.8%↓</td></tr>
+            <tr><td>Wan+AnyPos</td><td>0.53</td><td>0.49</td><td>0.58</td><td>0.53</td><td>20.9%↓</td></tr>
+            <tr><td>QwenVLA-OFT</td><td>0.46</td><td>0.28</td><td>0.50</td><td>0.41</td><td>34.9%↓</td></tr>
+            <tr><td>Cosmos-Policy</td><td>0.57</td><td>0.26</td><td>0.50</td><td>0.44</td><td>43.6%↓</td></tr>
+            <tr class="ours-row"><td>HarmoWAM (Ours)</td><td><strong>0.81</strong></td><td><strong>0.80</strong></td><td><strong>0.85</strong></td><td><strong>0.82</strong></td><td><strong>7.9%↓</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="real-world">
+    <div class="container">
+      <h2>Real-World Experiments</h2>
+      <p class="lead">
+        HarmoWAM is evaluated on six real-world manipulation tasks, including
+        four single-arm tasks and two dual-arm collaborative tasks. Each task
+        uses 100 SpaceMouse teleoperation demonstrations and is evaluated over
+        20 independent episodes with randomized tabletop object positions.
+      </p>
+      <h3 class="subhead">Task Videos</h3>
+      <p class="caption-lead">
+        Rollouts are grouped by task and scenario: original, unseen object,
+        unseen background, and unseen position.
+      </p>
+
+      <div class="task-block">
+        <h3>Pick Fruit to Plate <span class="task-tag">single-arm</span></h3>
+        <span class="row-label">Original · Object · Background · Position</span>
+        <div class="video-grid original-row">
+          <figure><video autoplay controls muted loop playsinline preload="metadata"><source src="static/videos/pick_origin.mp4" type="video/mp4" /></video><figcaption>Original setting</figcaption></figure>
+        </div>
+        <div class="video-grid ood-row">
+          <figure><video autoplay controls muted loop playsinline preload="metadata"><source src="static/videos/pick_object.mp4" type="video/mp4" /></video><figcaption>Unseen object</figcaption></figure>
+          <figure><video autoplay controls muted loop playsinline preload="metadata"><source src="static/videos/pick_background.mp4" type="video/mp4" /></video><figcaption>Unseen background</figcaption></figure>
+         <figure><video autoplay controls muted loop playsinline preload="metadata"><source src="static/videos/pick_position.mp4" type="video/mp4" /></video><figcaption>Unseen position</figcaption></figure>
+        </div>
+      </div>
+
+      <div class="task-block">
+        <h3>Stack Coke Cans <span class="task-tag">single-arm</span></h3>
+        <span class="row-label">Original · Object · Background · Position</span>
+        <div class="video-grid original-row">
+          <figure><video autoplay controls muted loop playsinline preload="metadata"><source src="static/videos/stack_origin.mp4" type="video/mp4" /></video><figcaption>Original setting</figcaption></figure>
+        </div>
+        <div class="video-grid ood-row">
+          <figure><video autoplay controls muted loop playsinline preload="metadata"><source src="static/videos/stack_object.mp4" type="video/mp4" /></video><figcaption>Unseen object</figcaption></figure>
+          <figure><video autoplay controls muted loop playsinline preload="metadata"><source src="static/videos/stack_background.mp4" type="video/mp4" /></video><figcaption>Unseen background</figcaption></figure>
+         <figure><video autoplay controls muted loop playsinline preload="metadata"><source src="static/videos/stack_position.mp4" type="video/mp4" /></video><figcaption>Unseen position</figcaption></figure>
+        </div>
+      </div>
+
+      <div class="task-block">
+        <h3>Pour Coke into Beaker <span class="task-tag">single-arm</span></h3>
+        <span class="row-label">Original · Object · Background · Position</span>
+        <div class="video-grid original-row">
+          <figure><video autoplay controls muted loop playsinline preload="metadata"><source src="static/videos/pour_origin.mp4" type="video/mp4" /></video><figcaption>Original setting</figcaption></figure>
+        </div>
+        <div class="video-grid ood-row">
+          <figure><video autoplay controls muted loop playsinline preload="metadata"><source src="static/videos/pour_object.mp4" type="video/mp4" /></video><figcaption>Unseen object</figcaption></figure>
+          <figure><video autoplay controls muted loop playsinline preload="metadata"><source src="static/videos/pour_background.mp4" type="video/mp4" /></video><figcaption>Unseen background</figcaption></figure>
+         <figure><video autoplay controls muted loop playsinline preload="metadata"><source src="static/videos/pour_position.mp4" type="video/mp4" /></video><figcaption>Unseen position</figcaption></figure>
+        </div>
+      </div>
+
+      <div class="task-block">
+        <h3>Write "Yes" <span class="task-tag">single-arm</span></h3>
+        <span class="row-label">Original · Object · Background · Position</span>
+        <div class="video-grid original-row">
+          <figure><video autoplay controls muted loop playsinline preload="metadata"><source src="static/videos/write_origin.mp4" type="video/mp4" /></video><figcaption>Original setting</figcaption></figure>
+        </div>
+        <div class="video-grid ood-row">
+          <figure><video autoplay controls muted loop playsinline preload="metadata"><source src="static/videos/write_object.mp4" type="video/mp4" /></video><figcaption>Unseen object</figcaption></figure>
+          <figure><video autoplay controls muted loop playsinline preload="metadata"><source src="static/videos/write_background.mp4" type="video/mp4" /></video><figcaption>Unseen background</figcaption></figure>
+         <figure><video autoplay controls muted loop playsinline preload="metadata"><source src="static/videos/write_position.mp4" type="video/mp4" /></video><figcaption>Unseen position</figcaption></figure>
+        </div>
+      </div>
+
+      <div class="task-block">
+        <h3>Put Flowers in Vase <span class="task-tag">dual-arm</span></h3>
+        <span class="row-label">Original · Object · Background · Position</span>
+        <div class="video-grid original-row">
+          <figure><video autoplay controls muted loop playsinline preload="metadata"><source src="static/videos/flower_origin.mp4" type="video/mp4" /></video><figcaption>Original setting</figcaption></figure>
+        </div>
+        <div class="video-grid ood-row">
+          <figure><video autoplay controls muted loop playsinline preload="metadata"><source src="static/videos/flower_object.mp4" type="video/mp4" /></video><figcaption>Unseen object</figcaption></figure>
+          <figure><video autoplay controls muted loop playsinline preload="metadata"><source src="static/videos/flower_background.mp4" type="video/mp4" /></video><figcaption>Unseen background</figcaption></figure>
+         <figure><video autoplay controls muted loop playsinline preload="metadata"><source src="static/videos/flower_position.mp4" type="video/mp4" /></video><figcaption>Unseen position</figcaption></figure>
+        </div>
+      </div>
+
+      <div class="task-block">
+        <h3>Put Items to Bag and Zip <span class="task-tag">dual-arm</span></h3>
+        <span class="row-label">Original · Object · Background · Position</span>
+        <div class="video-grid original-row">
+          <figure><video autoplay controls muted loop playsinline preload="metadata"><source src="static/videos/bag_origin.mp4" type="video/mp4" /></video><figcaption>Original setting</figcaption></figure>
+        </div>
+        <div class="video-grid ood-row">
+          <figure><video autoplay controls muted loop playsinline preload="metadata"><source src="static/videos/bag_object.mp4" type="video/mp4" /></video><figcaption>Unseen object</figcaption></figure>
+          <figure><video autoplay controls muted loop playsinline preload="metadata"><source src="static/videos/bag_background.mp4" type="video/mp4" /></video><figcaption>Unseen background</figcaption></figure>
+         <figure><video autoplay controls muted loop playsinline preload="metadata"><source src="static/videos/bag_position.mp4" type="video/mp4" /></video><figcaption>Unseen position</figcaption></figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section alt" id="abstract">
+    <div class="container narrow">
+      <h2>Abstract</h2>
+      <p>World Action Models (WAMs) have emerged as a promising paradigm for robot control by modeling physical dynamics. Current WAMs generally follow two paradigms: the "Imagine-then-Execute" approach, which uses video prediction to infer actions via inverse dynamics, and the "Joint Modeling" approach, which jointly models actions and video representations.</p>
+      <p>Based on systematic experiments, we observe a fundamental trade-off between these paradigms: the former explicitly leverages world models for generalizable transit but lacks interaction precision, whereas the latter enables fine-grained, temporally coherent action generation but is constrained by the exploration space of the training distribution.</p>
+      <p>Motivated by these findings, we propose <strong>HarmoWAM</strong>, an end-to-end WAM that fully leverages a world model to unify predictive and reactive control, enabling both generalizable transit and precise manipulation. A Process-Adaptive Gating Mechanism automatically determines the timing and location of switching between complementary experts. Across six real-world tasks and three training-unseen test environments, HarmoWAM significantly outperforms prior state-of-the-art VLA models and WAMs.</p>
+    </div>
+  </section>
+
+  <section class="section" id="bibtex">
+    <div class="container narrow">
+      <h2>BibTeX</h2>
+      <pre><code>@misc{harmowam2026,
+  title  = {HarmoWAM: Harmonizing Generalizable and Precise Manipulation via Adaptive World Action Models},
+  author = {Feng, Qiuxuan and Yu, Jiale and Liu, Jiaming and Jia, Yueru and Wu, Zhuangzhe and Chen, Hao and Qian, Zezhong and Gu, Shuo and Jia, Peng and Ma, Siwei and Zhang, Shanghang},
+  year   = {2026},
+  note   = {Submitted to NeurIPS 2026}
+}</code></pre>
+      <button id="copy-bibtex" class="btn small"><i class="fas fa-copy"></i><span>Copy</span></button>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container narrow">
+      <p>Page format follows the original project page template.</p>
+    </div>
+  </footer>
+
+  <script src="static/js/main.js"></script>
+</body>
+</html>
