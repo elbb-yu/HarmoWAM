@@ -15,4 +15,3 @@ Open <http://localhost:8000>.
 - `index.html` - project page
 - `static/css/style.css` - page styles
 - `static/js/main.js` - BibTeX copy behavior
-- `static/papers/harmowam.pdf` - provided PDF
